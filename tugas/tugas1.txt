@@ -1,0 +1,89 @@
+Setting environment for using XAMPP for Windows.
+ILHAM ARIFIN@DESKTOP-2TUQAJ0 d:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| dbkuliah           |
+| dbti08             |
+| dbtoko             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+8 rows in set (0.047 sec)
+
+MariaDB [(none)]> USE dbkuliah;
+Database changed
+MariaDB [dbkuliah]> SHOW TABLES;
++--------------------+
+| Tables_in_dbkuliah |
++--------------------+
+| jurusan            |
+| mahasiswa          |
++--------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [dbkuliah]> DESC jurusan;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nama  | varchar(30) | NO   | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.023 sec)
+
+MariaDB [dbkuliah]> DESC mahasiswa;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nim       | int(11)     | NO   | UNI | NULL    |                |
+| nama      | varchar(30) | NO   |     | NULL    |                |
+| alamat    | varchar(50) | NO   |     | NULL    |                |
+| idjurusan | int(11)     | NO   |     | NULL    |                |
+| foto      | varchar(30) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+6 rows in set (0.027 sec)
+
+MariaDB [dbkuliah]> SELECT * FROM jurusan;
++----+-----------------------+
+| id | nama                  |
++----+-----------------------+
+|  3 | Bisnis Digital        |
+|  5 | Pendidikan Matematika |
+|  2 | Sistem Informasi      |
+|  4 | Teknik Industri       |
+|  1 | Teknik Informatika    |
++----+-----------------------+
+5 rows in set (0.066 sec)
+
+MariaDB [dbkuliah]> SELECT * FROM mahasiswa;
++----+-----------+--------------+--------------+-----------+-----------+
+| id | nim       | nama         | alamat       | idjurusan | foto      |
++----+-----------+--------------+--------------+-----------+-----------+
+|  1 | 110223244 | Ilham Arifin | Depok        |         1 | ipin.jpg  |
+|  2 | 110223243 | Ijab         | Pasar Minggu |         3 | ijab.jpg  |
+|  3 | 110223240 | Afif         | GDC Depok    |         2 | afif.jpg  |
+|  4 | 110223252 | Feri         | Kelapa Dua   |         4 | feri.jpg  |
+|  5 | 110223256 | Jamal        | Jagakarsa    |         5 | jamal.jpg |
++----+-----------+--------------+--------------+-----------+-----------+
+5 rows in set (0.001 sec)
+
+MariaDB [dbkuliah]> \q
+Bye
+
+ILHAM ARIFIN@DESKTOP-2TUQAJ0 d:\xampp
+# 
