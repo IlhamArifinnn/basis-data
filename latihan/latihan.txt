@@ -644,3 +644,4 @@ Empty set (0.001 sec)
 ## Jawaban dari No. 47 Cari data pegawai yang huruf kelimanya huruf S 
 MariaDB [dbpegawai]> SELECT * FROM pegawai WHERE nama LIKE '____s%';
 Empty set (0.001 sec)
+
