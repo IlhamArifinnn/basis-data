@@ -11,12 +11,12 @@ Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 MariaDB [(none)]>
 
-## Jawaban dari no. 1 membuat database 
+## Jawaban dari no. 1 membuat database
 MariaDB [(none)]> CREATE DATABASE dbpegawai;
 Query OK, 1 row affected (0.001 sec)
 
 
-## Jawaban dari No. 2 Masuk ke dbpegawai 
+## Jawaban dari No. 2 Masuk ke dbpegawai
 MariaDB [(none)]> USE dbpegawai;
 Database changed
 MariaDB [dbpegawai]>
@@ -30,7 +30,7 @@ Query OK, 0 rows affected (0.038 sec)
 MariaDB [dbpegawai]>
 
 
-## Jawaban dari No. 4 Tampilkan deskripsi tabel divisi  
+## Jawaban dari No. 4 Tampilkan deskripsi tabel divisi
 MariaDB [dbpegawai]> DESC divisi;
 +-------+-------------+------+-----+---------+----------------+
 | Field | Type        | Null | Key | Default | Extra          |
@@ -42,7 +42,7 @@ MariaDB [dbpegawai]> DESC divisi;
 MariaDB [dbpegawai]>
 
 
-## Jawaban dari No. 5 membuat tabel divisi 
+## Jawaban dari No. 5 membuat tabel jabatan 
 MariaDB [dbpegawai]> CREATE TABLE jabatan (
     -> id int primary key auto_increment,
     -> nama varchar(30) not null unique);
@@ -62,7 +62,7 @@ MariaDB [dbpegawai]> DESC jabatan;
 MariaDB [dbpegawai]>
 
 
-## Jawaban dari No. 7 membuat tabel jabatan 
+## Jawaban dari No. 7 membuat tabel pegawai 
 MariaDB [dbpegawai]> CREATE TABLE pegawai (
     -> id int primary key auto_increment,
     -> nip char(5) not null unique,
