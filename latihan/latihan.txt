@@ -215,12 +215,21 @@ MariaDB [dbpegawai]> UPDATE pegawai SET nama='Dewa Saputra', tmp_lahir='Medan', 
 Query OK, 1 row affected (0.006 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
-MariaDB [dbpegawai]> UPDATE pegawai SET nama='Anita Safitri', tmp_lahir='Banten', alamat='Banten' WHERE id=19,
-    -> UPDATE pegawai SET nama='Irfan Putra', tmp_lahir='Bandung', alamat='Bandung' WHERE id=18,
-    -> UPDATE pegawai SET nama='Rina Nose', tmp_lahir='Jakarta', alamat='Jakarta' WHERE id=17,
-    -> UPDATE pegawai SET nama='Hadi Perdana', tmp_lahir='Depok', alamat='Depok' WHERE id=16;
-Query OK, 4 row affected (0.007 sec)
-Rows matched: 4  Changed: 4  Warnings: 0
+MariaDB [dbpegawai]> UPDATE pegawai SET nama='Anita Safitri', tmp_lahir='Banten', alamat='Banten' WHERE id=19;
+Query OK, 1 row affected (0.010 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [dbpegawai]> UPDATE pegawai SET nama='Irfan Putra', tmp_lahir='Bandung', alamat='Bandung' WHERE id=18;
+Query OK, 1 row affected (0.010 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [dbpegawai]> UPDATE pegawai SET nama='Rina Nose', tmp_lahir='Jakarta', alamat='Jakarta' WHERE id=17;
+Query OK, 1 row affected (0.010 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [dbpegawai]> UPDATE pegawai SET nama='Hadi Perdana', tmp_lahir='Depok', alamat='Depok' WHERE id=16;
+Query OK, 1 row affected (0.007 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
 
 
 ## Jawaban dari No. 17 Hapus 2 orang pegawai pegawai terakhir 
