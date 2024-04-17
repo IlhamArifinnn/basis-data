@@ -11,11 +11,9 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 MariaDB [(none)]>
 
 
-
 ** Jawaban dari no. 1 membuat database
 MariaDB [(none)]> CREATE DATABASE dbpegawai2;
 Query OK, 1 row affected (0.001 sec)
-
 
 
 
@@ -26,13 +24,11 @@ MariaDB [dbpegawai2]>
 
 
 
-
 ** Jawaban dari No. 3 membuat tabel divisi 
 MariaDB [dbpegawai2]> CREATE TABLE divisi (
     -> id int primary key auto_increment,
     -> nama varchar(30) not null unique);
 Query OK, 0 rows affected (0.038 sec)
-
 
 
 
@@ -48,13 +44,11 @@ MariaDB [dbpegawai2]> DESC divisi;
 
 
 
-
 ** Jawaban dari No. 5 membuat tabel jabatan 
 MariaDB [dbpegawai2]> CREATE TABLE jabatan (
     -> id int primary key auto_increment,
     -> nama varchar(30) not null unique);
 Query OK, 0 rows affected (0.059 sec)
-
 
 
 
@@ -70,7 +64,6 @@ MariaDB [dbpegawai2]> DESC jabatan;
 
 
 
-
 ** Jawaban dari No. 7 membuat tabel pegawai
 MariaDB [dbpegawai2]> CREATE TABLE pegawai2 (
     -> id int primary key auto_increment,
@@ -83,7 +76,6 @@ MariaDB [dbpegawai2]> CREATE TABLE pegawai2 (
     -> idjabatan int not null references jabatan(id),
     -> alamat text);
 Query OK, 0 rows affected (0.060 sec)
-
 
 
 
@@ -106,7 +98,6 @@ MariaDB [dbpegawai2]> DESC pegawai2;
 
 
 
-
 ** Jawaban dari No. 9 Tampilkan tabel-tabel yang ada di dbpegawai2 
 MariaDB [dbpegawai2]> SHOW TABLES;
 +---------------------+
@@ -120,13 +111,11 @@ MariaDB [dbpegawai2]> SHOW TABLES;
 
 
 
-
 ** Jawaban dari No. 10 Input data divisi => SDM, Keuangan, Marketing, IT 
 MariaDB [dbpegawai2]> INSERT INTO divisi (nama) VALUES
     -> ('SDM'), ('Keuangan'), ('Marketing'), ('IT');
 Query OK, 4 rows affected (0.043 sec)
 Records: 4  Duplicates: 0  Warnings: 0
-
 
 
 
@@ -144,13 +133,11 @@ MariaDB [dbpegawai2]> SELECT * FROM divisi;
 
 
 
-
 ** Jawaban dari No. 12 Input data jabatan => Direktur, Manajer, Asisten Manajer, Staff 
 MariaDB [dbpegawai2]> INSERT INTO jabatan (nama) VALUES
     -> ('Direktur'), ('Manajer'), ('Asisten Manajer'), ('Staff');
 Query OK, 4 rows affected (0.066 sec)
 Records: 4  Duplicates: 0  Warnings: 0
-
 
 
 
@@ -165,7 +152,6 @@ MariaDB [dbpegawai2]> SELECT * FROM jabatan;
 |  4 | Staff           |
 +----+-----------------+
 4 rows in set (0.001 sec)
-
 
 
 
@@ -200,7 +186,6 @@ MariaDB [dbpegawai2]>
 
 
 
-
 ** Jawaban dari No. 15 Tampilkan seluruh data pegawai 
 MariaDB [dbpegawai2]> SELECT * FROM pegawai2;
 +----+-------+-----------------+-----------+------------+------------+----------+-----------+------------+
@@ -231,7 +216,6 @@ MariaDB [dbpegawai2]> SELECT * FROM pegawai2;
 
 
 
-
 ** Jawaban dari No. 16 Ubah data 5 orang pegawai 
 MariaDB [dbpegawai2]> UPDATE pegawai2 SET nama='Arif Saputra', tmp_lahir='Jakarta', alamat='Jakarta' WHERE id=20;
 Query OK, 1 row affected (0.008 sec)
@@ -255,14 +239,12 @@ Rows matched: 1  Changed: 1  Warnings: 0
 
 
 
-
 ** Jawaban dari No. 17 Hapus 2 orang pegawai pegawai terakhir 
 MariaDB [dbpegawai2]> DELETE FROM pegawai2 WHERE id=19;
 Query OK, 1 row affected (0.005 sec)
 
 MariaDB [dbpegawai2]> DELETE FROM pegawai2 WHERE id=20;
 Query OK, 1 row affected (0.008 sec)
-
 
 
 ** Jawaban dari No. 18 menambahkan kolom baru berat_badan 
@@ -273,7 +255,6 @@ Records: 0  Duplicates: 0  Warnings: 0
 MariaDB [dbpegawai2]> UPDATE pegawai2 SET berat_badan = ROUND(RAND() * 50 + 40, 2);
 Query OK, 18 rows affected (0.009 sec)
 Rows matched: 18  Changed: 18  Warnings: 0
-
 
 
 
@@ -288,13 +269,11 @@ Rows matched: 18  Changed: 18  Warnings: 0
 
 
 
-
 ** Jawaban dari No. 20 mengubah nama kolom gender 
 MariaDB [dbpegawai2]> ALTER TABLE pegawai2 CHANGE gender jenis_kelamin enum('Laki-laki','Perempuan') not null;
 Query OK, 0 rows affected (0.015 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 MariaDB [dbpegawai2]>
-
 
 
 
@@ -327,7 +306,6 @@ MariaDB [dbpegawai2]>
 
 
 
-
 ** Jawaban dari No. 22 Tampilkan baris2 tertentu di tabel pegawai (yang gendernya laki2 saja) 
 MariaDB [dbpegawai2]> SELECT nip,nama,jenis_kelamin,alamat FROM pegawai2 WHERE jenis_kelamin='Laki-laki';
 +-------+-----------------+---------------+------------+
@@ -350,7 +328,6 @@ MariaDB [dbpegawai2]>
 
 
 
-
 ** Jawaban dari No. 23 Tampilkan baris2 tertentu di tabel pegawai (yang bekerja di divisi IT dan gendernya perempuan)  
 MariaDB [dbpegawai2]> SELECT nip,nama,jenis_kelamin,alamat FROM pegawai2 WHERE iddivisi=4 AND jenis_kelamin='Perempuan';
 +-------+--------------+---------------+--------+
@@ -360,7 +337,6 @@ MariaDB [dbpegawai2]> SELECT nip,nama,jenis_kelamin,alamat FROM pegawai2 WHERE i
 +-------+--------------+---------------+--------+
 1 row in set (0.001 sec)
 MariaDB [dbpegawai2]>
-
 
 
 
@@ -379,12 +355,10 @@ MariaDB [dbpegawai2]>
 
 
 
-
 ** Jawaban dari No. 25 Tampilkan data pegawai yang bekerja pada divisi marketing, berumur lebih dari 30 tahun dan berjenis kelamin perempuan 
 MariaDB [dbpegawai2]>  SELECT * FROM pegawai2 WHERE iddivisi=3 AND umur > 30 AND jenis_kelamin='Perempuan';
 Empty set (0.001 sec)
 MariaDB [dbpegawai2]>
-
 
 
 
@@ -396,7 +370,6 @@ MariaDB [dbpegawai2]> SELECT * FROM pegawai2 WHERE nip = 11110;
 |  1 | 11110 | Ilham Arifin | Laki-laki     | Depok     | 1999-08-22 |        1 |         1 | Depok  |       77.93 |   29 |
 +----+-------+--------------+---------------+-----------+------------+----------+-----------+--------+-------------+------+
 1 row in set (0.001 sec)
-
 
 
 
@@ -421,7 +394,6 @@ MariaDB [dbpegawai2]>  SELECT * FROM pegawai2 WHERE jenis_kelamin = 'Laki-laki';
 
 
 
-
 ** Jawaban dari No. 28 Tampilkan data pegawai dengan klausa in (menyebutkan beberapa nip) 
 MariaDB [dbpegawai2]> SELECT * FROM pegawai2 WHERE nip IN(11112,11115,11118,11113,11125,11128,11124);
 +----+-------+----------------+---------------+------------+------------+----------+-----------+------------+-------------+------+
@@ -436,7 +408,6 @@ MariaDB [dbpegawai2]> SELECT * FROM pegawai2 WHERE nip IN(11112,11115,11118,1111
 +----+-------+----------------+---------------+------------+------------+----------+-----------+------------+-------------+------+
 6 rows in set (0.001 sec)
 MariaDB [dbpegawai2]>
-
 
 
 
@@ -458,7 +429,6 @@ MariaDB [dbpegawai2]> SELECT * FROM pegawai2 WHERE tmp_lahir NOT IN('Bekasi','De
 +----+-------+-----------------+---------------+------------+------------+----------+-----------+------------+-------------+------+
 10 rows in set (0.001 sec)
 MariaDB [dbpegawai2]>
-
 
 
 
@@ -491,7 +461,6 @@ MariaDB [dbpegawai2]>
 
 
 
-
 ** Jawaban dari No. 31 Tampilkan data pegawai dari yang berat badan paling gemuk ke paling kurus  
 MariaDB [dbpegawai2]> SELECT * FROM pegawai2 ORDER BY berat_badan DESC;
 +----+-------+-----------------+---------------+------------+------------+----------+-----------+------------+-------------+------+
@@ -521,7 +490,6 @@ MariaDB [dbpegawai2]>
 
 
 
-
 ** Jawaban dari No. 32 Tampilkan data 5 pegawai teratas gunakan klausa limit 
 MariaDB [dbpegawai2]> SELECT * FROM pegawai2 LIMIT 5;
 +----+-------+----------------+---------------+------------+------------+----------+-----------+------------+-------------+------+
@@ -535,7 +503,6 @@ MariaDB [dbpegawai2]> SELECT * FROM pegawai2 LIMIT 5;
 +----+-------+----------------+---------------+------------+------------+----------+-----------+------------+-------------+------+
 5 rows in set (0.001 sec)
 MariaDB [dbpegawai2]>
-
 
 
 
@@ -555,7 +522,6 @@ MariaDB [dbpegawai2]>
 
 
 
-
 ** Jawaban dari No. 34 Tampilkan jumlah pegawai gunakan fungsi aggregrat count 
 MariaDB [dbpegawai2]>  SELECT COUNT(*) AS jumlah_pegawai FROM pegawai2;
 +----------------+
@@ -565,7 +531,6 @@ MariaDB [dbpegawai2]>  SELECT COUNT(*) AS jumlah_pegawai FROM pegawai2;
 +----------------+
 1 row in set (0.001 sec)
 MariaDB [dbpegawai2]>
-
 
 
 
@@ -581,7 +546,6 @@ MariaDB [dbpegawai2]>
 
 
 
-
 ** Jawaban dari No. 36 Tampilkan nip,nama pegawai, berat_badan yg paling kurus gunakan fungsi aggregrat min  
 MariaDB [dbpegawai2]> SELECT nip,nama,berat_badan FROM pegawai2 WHERE berat_badan = (SELECT MIN(berat_badan) FROM pegawai2);
 +-------+---------------+-------------+
@@ -594,7 +558,6 @@ MariaDB [dbpegawai2]>
 
 
 
-
 ** Jawaban dari No. 37 Tampilkan data rata2 umur pegawai gunakan fungsi aggregrat avg 
 MariaDB [dbpegawai2]> SELECT AVG(umur) AS rata2_umur FROM pegawai2;
 +------------+
@@ -603,7 +566,6 @@ MariaDB [dbpegawai2]> SELECT AVG(umur) AS rata2_umur FROM pegawai2;
 |    37.2778 |
 +------------+
 1 row in set (0.001 sec)
-
 
 
 
@@ -619,7 +581,6 @@ MariaDB [dbpegawai2]>  SELECT COUNT(*) AS 'jumlah data laki2 umur lebih dari 40'
 
 
 
-
 ** Jawaban dari No. 39 Tampilkan jumlah data pegawai yang perempuan dan berumur kurang dari 40 tahun dan berjabatan Staff, gunakan fungsi aggregrat count dan klausa AND 
 MariaDB [dbpegawai2]> SELECT COUNT(*) AS 'jumlah data perempuan umur kurang dari 40' FROM pegawai2
     -> WHERE jenis_kelamin = 'Perempuan' AND umur < 40 AND idjabatan = 4;
@@ -629,7 +590,6 @@ MariaDB [dbpegawai2]> SELECT COUNT(*) AS 'jumlah data perempuan umur kurang dari
 |                                         3 |
 +-------------------------------------------+
 1 row in set (0.001 sec)
-
 
 
 
@@ -644,7 +604,6 @@ MariaDB [dbpegawai2]> SELECT COUNT(*) AS 'jumlah data perempuan' FROM pegawai2 W
 
 
 
-
 ** Jawaban dari No. 41 Tampilkan jumlah pegawai yang bekerja di divisi SDM dengan fungsi aggregrat sum dan klausa WHERE 
 MariaDB [dbpegawai2]>  SELECT SUM(iddivisi) AS jumlah_pegawai_SDM FROM pegawai2 WHERE iddivisi=1;
 +--------------------+
@@ -653,7 +612,6 @@ MariaDB [dbpegawai2]>  SELECT SUM(iddivisi) AS jumlah_pegawai_SDM FROM pegawai2 
 |                  5 |
 +--------------------+
 1 row in set (0.001 sec)
-
 
 
 
@@ -671,7 +629,6 @@ MariaDB [dbpegawai2]> SELECT iddivisi, COUNT(iddivisi) AS 'jumlah pegawai per di
 
 
 
-
 ** Jawaban dari No. 43 Tampilkan data jumlah pegawai berdasarkan gender, yg jumlah minimal 10 orang (gunakan group by dan having) 
 MariaDB [dbpegawai2]> SELECT jenis_kelamin, COUNT(jenis_kelamin) AS 'jumlah jenis_kelamin' FROM pegawai2
     -> GROUP BY jenis_kelamin HAVING COUNT(jenis_kelamin) >= 10;
@@ -681,7 +638,6 @@ MariaDB [dbpegawai2]> SELECT jenis_kelamin, COUNT(jenis_kelamin) AS 'jumlah jeni
 | Laki-laki     |                   11 |
 +---------------+----------------------+
 1 row in set (0.001 sec)
-
 
 
 
@@ -697,7 +653,6 @@ MariaDB [dbpegawai2]>  SELECT * FROM pegawai2 WHERE nama LIKE 'Muhammad%';
 
 
 
-
 ** Jawaban dari No. 45 Cari data pegawai yang berakhiran kata Santoso 
 MariaDB [dbpegawai2]> SELECT * FROM pegawai2 WHERE nama LIKE '%Santoso';
 +----+-------+--------------+---------------+-----------+------------+----------+-----------+--------+-------------+------+
@@ -706,7 +661,6 @@ MariaDB [dbpegawai2]> SELECT * FROM pegawai2 WHERE nama LIKE '%Santoso';
 |  6 | 11115 | Budi Santoso | Laki-laki     | Depok     | 1991-04-29 |        2 |         1 | Depok  |       55.56 |   47 |
 +----+-------+--------------+---------------+-----------+------------+----------+-----------+--------+-------------+------+
 1 row in set (0.001 sec)
-
 
 
 
@@ -719,7 +673,6 @@ MariaDB [dbpegawai2]> SELECT * FROM pegawai2 WHERE nama LIKE '%Asep%';
 | 13 | 11122 | Asep Sulaiman | Laki-laki     | Bogor     | 1994-04-08 |        3 |         3 | Bogor  |       47.36 |   47 |
 +----+-------+---------------+---------------+-----------+------------+----------+-----------+--------+-------------+------+
 2 rows in set (0.001 sec)
-
 
 
 
