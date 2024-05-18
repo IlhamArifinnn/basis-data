@@ -1,0 +1,353 @@
+
+ILHAM ARIFIN@DESKTOP-2TUQAJ0 d:\xampp
+# mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| dbkuliah           |
+| dbti08             |
+| dbtoko             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+8 rows in set (0.025 sec)
+
+
+ILHAM ARIFIN@DESKTOP-2TUQAJ0 d:\xampp
+# mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 11
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> USE dbtoko;
+Database changed
+MariaDB [dbtoko]> SHOW TABLES;
++------------------+
+| Tables_in_dbtoko |
++------------------+
+| jenis            |
+| produk           |
++------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> DESC jenis;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nama  | varchar(30) | NO   | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.022 sec)
+
+MariaDB [dbtoko]> DESC produk;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| kode    | char(5)     | NO   | UNI | NULL    |                |
+| nama    | varchar(30) | NO   |     | NULL    |                |
+| harga   | double      | NO   |     | NULL    |                |
+| stok    | int(11)     | NO   |     | NULL    |                |
+| idjenis | int(11)     | NO   |     | NULL    |                |
+| foto    | varchar(30) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+7 rows in set (0.017 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk;
++----+-------+-----------------------+---------+------+---------+-------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto        |
++----+-------+-----------------------+---------+------+---------+-------------+
+|  1 | KL001 | Kulkas LG 14 Pintu    | 7000000 |    2 |       1 | kulkas.jpg  |
+|  2 | LM002 | Lemari Baju           | 1000000 |    5 |       2 | lemari.jpg  |
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg  |
+|  4 | BS008 | Basreng               |   10000 |  100 |       3 | basreng.jpg |
+|  7 | BS001 | Bakso                 |   15000 |   10 |       3 | bakso.jpg   |
+|  8 | SB001 | Seblak                |   15000 |    7 |       3 | seblak.jpg  |
+|  9 | SP001 | Sprite                |    5000 |    5 |       4 | sprite.jpg  |
++----+-------+-----------------------+---------+------+---------+-------------+
+7 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk ORDER BY id;
++----+-------+-----------------------+---------+------+---------+-------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto        |
++----+-------+-----------------------+---------+------+---------+-------------+
+|  1 | KL001 | Kulkas LG 14 Pintu    | 7000000 |    2 |       1 | kulkas.jpg  |
+|  2 | LM002 | Lemari Baju           | 1000000 |    5 |       2 | lemari.jpg  |
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg  |
+|  4 | BS008 | Basreng               |   10000 |  100 |       3 | basreng.jpg |
+|  7 | BS001 | Bakso                 |   15000 |   10 |       3 | bakso.jpg   |
+|  8 | SB001 | Seblak                |   15000 |    7 |       3 | seblak.jpg  |
+|  9 | SP001 | Sprite                |    5000 |    5 |       4 | sprite.jpg  |
++----+-------+-----------------------+---------+------+---------+-------------+
+7 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> \q
+Bye
+
+ILHAM ARIFIN@DESKTOP-2TUQAJ0 d:\xampp
+# mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 12
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> USE dbtoko;
+Database changed
+MariaDB [dbtoko]> SHOW TABLES;
++------------------+
+| Tables_in_dbtoko |
++------------------+
+| jenis            |
+| produk           |
++------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM jenis;
++----+------------+
+| id | nama       |
++----+------------+
+|  1 | Elektronik |
+|  2 | Furniture  |
+|  3 | Makanan    |
+|  4 | Minuman    |
++----+------------+
+4 rows in set (0.005 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk;
++----+-------+-----------------------+---------+------+---------+-------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto        |
++----+-------+-----------------------+---------+------+---------+-------------+
+|  1 | KL001 | Kulkas LG 14 Pintu    | 7000000 |    2 |       1 | kulkas.jpg  |
+|  2 | LM002 | Lemari Baju           | 1000000 |    5 |       2 | lemari.jpg  |
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg  |
+|  4 | BS008 | Basreng               |   10000 |  100 |       3 | basreng.jpg |
+|  7 | BS001 | Bakso                 |   15000 |   10 |       3 | bakso.jpg   |
+|  8 | SB001 | Seblak                |   15000 |    7 |       3 | seblak.jpg  |
+|  9 | SP001 | Sprite                |    5000 |    5 |       4 | sprite.jpg  |
++----+-------+-----------------------+---------+------+---------+-------------+
+7 rows in set (0.000 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk;
++----+-------+-----------------------+---------+------+---------+-------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto        |
++----+-------+-----------------------+---------+------+---------+-------------+
+|  1 | KL001 | Kulkas LG 14 Pintu    | 7000000 |    2 |       1 | kulkas.jpg  |
+|  2 | LM002 | Lemari Baju           | 1000000 |    5 |       2 | lemari.jpg  |
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg  |
+|  4 | BS008 | Basreng               |   10000 |  100 |       3 | basreng.jpg |
+|  7 | BS001 | Bakso                 |   15000 |   10 |       3 | bakso.jpg   |
+|  8 | SB001 | Seblak                |   15000 |    7 |       3 | seblak.jpg  |
+|  9 | SP001 | Sprite                |    5000 |    5 |       4 | sprite.jpg  |
++----+-------+-----------------------+---------+------+---------+-------------+
+7 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk WHERE harga >1000000;
++----+-------+-----------------------+---------+------+---------+------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto       |
++----+-------+-----------------------+---------+------+---------+------------+
+|  1 | KL001 | Kulkas LG 14 Pintu    | 7000000 |    2 |       1 | kulkas.jpg |
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg |
++----+-------+-----------------------+---------+------+---------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk WHERE stok = 5;
++----+-------+-------------+---------+------+---------+------------+
+| id | kode  | nama        | harga   | stok | idjenis | foto       |
++----+-------+-------------+---------+------+---------+------------+
+|  2 | LM002 | Lemari Baju | 1000000 |    5 |       2 | lemari.jpg |
+|  9 | SP001 | Sprite      |    5000 |    5 |       4 | sprite.jpg |
++----+-------+-------------+---------+------+---------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk WHERE stok <> 5;
++----+-------+-----------------------+---------+------+---------+-------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto        |
++----+-------+-----------------------+---------+------+---------+-------------+
+|  1 | KL001 | Kulkas LG 14 Pintu    | 7000000 |    2 |       1 | kulkas.jpg  |
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg  |
+|  4 | BS008 | Basreng               |   10000 |  100 |       3 | basreng.jpg |
+|  7 | BS001 | Bakso                 |   15000 |   10 |       3 | bakso.jpg   |
+|  8 | SB001 | Seblak                |   15000 |    7 |       3 | seblak.jpg  |
++----+-------+-----------------------+---------+------+---------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk WHERE harga >= 1000000 AND stok >= 5;
++----+-------+-----------------------+---------+------+---------+------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto       |
++----+-------+-----------------------+---------+------+---------+------------+
+|  2 | LM002 | Lemari Baju           | 1000000 |    5 |       2 | lemari.jpg |
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg |
++----+-------+-----------------------+---------+------+---------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk WHERE harga >= 1000000 OR stok >= 5;
++----+-------+-----------------------+---------+------+---------+-------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto        |
++----+-------+-----------------------+---------+------+---------+-------------+
+|  1 | KL001 | Kulkas LG 14 Pintu    | 7000000 |    2 |       1 | kulkas.jpg  |
+|  2 | LM002 | Lemari Baju           | 1000000 |    5 |       2 | lemari.jpg  |
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg  |
+|  4 | BS008 | Basreng               |   10000 |  100 |       3 | basreng.jpg |
+|  7 | BS001 | Bakso                 |   15000 |   10 |       3 | bakso.jpg   |
+|  8 | SB001 | Seblak                |   15000 |    7 |       3 | seblak.jpg  |
+|  9 | SP001 | Sprite                |    5000 |    5 |       4 | sprite.jpg  |
++----+-------+-----------------------+---------+------+---------+-------------+
+7 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk WHERE kode = "KL001";
++----+-------+--------------------+---------+------+---------+------------+
+| id | kode  | nama               | harga   | stok | idjenis | foto       |
++----+-------+--------------------+---------+------+---------+------------+
+|  1 | KL001 | Kulkas LG 14 Pintu | 7000000 |    2 |       1 | kulkas.jpg |
++----+-------+--------------------+---------+------+---------+------------+
+1 row in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk WHERE kode IN ("KL001","SP001");
++----+-------+--------------------+---------+------+---------+------------+
+| id | kode  | nama               | harga   | stok | idjenis | foto       |
++----+-------+--------------------+---------+------+---------+------------+
+|  1 | KL001 | Kulkas LG 14 Pintu | 7000000 |    2 |       1 | kulkas.jpg |
+|  9 | SP001 | Sprite             |    5000 |    5 |       4 | sprite.jpg |
++----+-------+--------------------+---------+------+---------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk WHERE nama LIKE "%S";
+Empty set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk WHERE nama LIKE "%S%";
++----+-------+--------------------+---------+------+---------+-------------+
+| id | kode  | nama               | harga   | stok | idjenis | foto        |
++----+-------+--------------------+---------+------+---------+-------------+
+|  1 | KL001 | Kulkas LG 14 Pintu | 7000000 |    2 |       1 | kulkas.jpg  |
+|  4 | BS008 | Basreng            |   10000 |  100 |       3 | basreng.jpg |
+|  7 | BS001 | Bakso              |   15000 |   10 |       3 | bakso.jpg   |
+|  8 | SB001 | Seblak             |   15000 |    7 |       3 | seblak.jpg  |
+|  9 | SP001 | Sprite             |    5000 |    5 |       4 | sprite.jpg  |
++----+-------+--------------------+---------+------+---------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk WHERE harga >= 1000000 ORDER BY nama DESC;
++----+-------+-----------------------+---------+------+---------+------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto       |
++----+-------+-----------------------+---------+------+---------+------------+
+|  2 | LM002 | Lemari Baju           | 1000000 |    5 |       2 | lemari.jpg |
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg |
+|  1 | KL001 | Kulkas LG 14 Pintu    | 7000000 |    2 |       1 | kulkas.jpg |
++----+-------+-----------------------+---------+------+---------+------------+
+3 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk WHERE harga >= 1000000 ORDER BY nama;
++----+-------+-----------------------+---------+------+---------+------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto       |
++----+-------+-----------------------+---------+------+---------+------------+
+|  1 | KL001 | Kulkas LG 14 Pintu    | 7000000 |    2 |       1 | kulkas.jpg |
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg |
+|  2 | LM002 | Lemari Baju           | 1000000 |    5 |       2 | lemari.jpg |
++----+-------+-----------------------+---------+------+---------+------------+
+3 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk LIMIT 2;
++----+-------+--------------------+---------+------+---------+------------+
+| id | kode  | nama               | harga   | stok | idjenis | foto       |
++----+-------+--------------------+---------+------+---------+------------+
+|  1 | KL001 | Kulkas LG 14 Pintu | 7000000 |    2 |       1 | kulkas.jpg |
+|  2 | LM002 | Lemari Baju        | 1000000 |    5 |       2 | lemari.jpg |
++----+-------+--------------------+---------+------+---------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk LIMIT 2 OFFSET 3;
++----+-------+---------+-------+------+---------+-------------+
+| id | kode  | nama    | harga | stok | idjenis | foto        |
++----+-------+---------+-------+------+---------+-------------+
+|  4 | BS008 | Basreng | 10000 |  100 |       3 | basreng.jpg |
+|  7 | BS001 | Bakso   | 15000 |   10 |       3 | bakso.jpg   |
++----+-------+---------+-------+------+---------+-------------+
+2 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk;
++----+-------+-----------------------+---------+------+---------+-------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto        |
++----+-------+-----------------------+---------+------+---------+-------------+
+|  1 | KL001 | Kulkas LG 14 Pintu    | 7000000 |    2 |       1 | kulkas.jpg  |
+|  2 | LM002 | Lemari Baju           | 1000000 |    5 |       2 | lemari.jpg  |
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg  |
+|  4 | BS008 | Basreng               |   10000 |  100 |       3 | basreng.jpg |
+|  7 | BS001 | Bakso                 |   15000 |   10 |       3 | bakso.jpg   |
+|  8 | SB001 | Seblak                |   15000 |    7 |       3 | seblak.jpg  |
+|  9 | SP001 | Sprite                |    5000 |    5 |       4 | sprite.jpg  |
++----+-------+-----------------------+---------+------+---------+-------------+
+7 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT * FROM produk LIMIT 5 OFFSET 2;
++----+-------+-----------------------+---------+------+---------+-------------+
+| id | kode  | nama                  | harga   | stok | idjenis | foto        |
++----+-------+-----------------------+---------+------+---------+-------------+
+|  3 | LP001 | Laptop Lenovo 10 Inch | 4000000 |   20 |       1 | laptop.jpg  |
+|  4 | BS008 | Basreng               |   10000 |  100 |       3 | basreng.jpg |
+|  7 | BS001 | Bakso                 |   15000 |   10 |       3 | bakso.jpg   |
+|  8 | SB001 | Seblak                |   15000 |    7 |       3 | seblak.jpg  |
+|  9 | SP001 | Sprite                |    5000 |    5 |       4 | sprite.jpg  |
++----+-------+-----------------------+---------+------+---------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT COUNT(*) AS jumlah_barang FROM produk;
++---------------+
+| jumlah_barang |
++---------------+
+|             7 |
++---------------+
+1 row in set (0.001 sec)
+
+
+MariaDB [dbtoko]> SELECT MAX(harga) AS barang_termahal FROM produk;
++-----------------+
+| barang_termahal |
++-----------------+
+|         7000000 |
++-----------------+
+1 row in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT min(harga) AS barang_termurah FROM produk;
++-----------------+
+| barang_termurah |
++-----------------+
+|            5000 |
++-----------------+
+1 row in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT SUM(harga) AS total_harga FROM produk;
++-------------+
+| total_harga |
++-------------+
+|    12045000 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [dbtoko]> SELECT SUM(harga) AS total_harga, MAX(harga) AS barang_termahal,MIN(harga) AS barang_termurah FROM produk;
++-------------+-----------------+-----------------+
+| total_harga | barang_termahal | barang_termurah |
++-------------+-----------------+-----------------+
+|    12045000 |         7000000 |            5000 |
++-------------+-----------------+-----------------+
+1 row in set (0.001 sec)
+
+MariaDB [dbtoko]>
