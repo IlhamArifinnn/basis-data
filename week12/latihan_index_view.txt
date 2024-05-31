@@ -1,0 +1,44 @@
+-- koneksi ke sebuah DB
+USE dbtoko_senin;
+
+-- INNER JOIN 2 TABEL
+SELECT produk.nama, produk.kondisi, produk.harga, produk.stok, jenis.nama AS kategori
+FROM jenis INNER JOIN produk
+ON jenis.id = produk.jenis_id;
+
+-- OUTER JOIN 2 TABLE
+SELECT produk.nama, produk.kondisi, produk.harga, produk.stok, jenis.nama AS kategori
+FROM jenis LEFT JOIN produk
+ON jenis.id = produk.jenis_id;
+
+-- INNER JOIN 3 TABEL
+SELECT pelanggan.nama AS customer, pesanan.kode, pesanan.tgl, produk.nama,
+jenis.nama AS kategori, produk.kondisi, produk.harga, pesanan.jumlah 
+FROM pesanan 
+INNER JOIN pelanggan ON pelanggan.id = pesanan.pelanggan_id
+INNER JOIN produk ON produk.id = pesanan.produk_id
+INNER JOIN jenis ON jenis.id = produk.jenis_id;
+
+-- INNER JOIN 4 TABEL MENGALIASKAN NAMA TABEL
+SELECT pg.nama AS customer, ps.kode, ps.tgl, pd.nama,
+j.nama AS kategori, pd.kondisi, pd.harga, ps.jumlah 
+FROM pesanan ps
+INNER JOIN pelanggan pg ON pg.id = ps.pelanggan_id
+INNER JOIN produk pd ON pd.id = ps.produk_id
+INNER JOIN jenis j ON j.id = pd.jenis_id;
+
+-- VIEW
+CREATE VIEW pesanan_v AS 
+SELECT pelanggan.nama AS customer, pesanan.kode, pesanan.tgl, produk.nama,
+jenis.nama AS kategori, produk.kondisi, produk.harga, pesanan.jumlah 
+FROM pesanan 
+INNER JOIN pelanggan ON pelanggan.id = pesanan.pelanggan_id
+INNER JOIN produk ON produk.id = pesanan.produk_id
+INNER JOIN jenis ON jenis.id = produk.jenis_id;
+
+-- PANGGIL TABEL VIEW
+SELECT * FROM pesanan_v;
+
+-- BUAT INDEX
+CREATE INDEX nama_produk_idx ON produk(nama); 
+
