@@ -1,0 +1,20 @@
+cover
+latar belakang (database project)
+deskripsi (database project)
+desain database project (workbench) ERD 
+
+
+create
+crud
+join table
+view
+index
+transaction
+procedure
+triger
+dcl
+backup & restore
+
+laporan word
+mwb
+sql
