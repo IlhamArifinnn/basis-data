@@ -1,0 +1,148 @@
+week 13 basis data
+DCL
+
+
+MariaDB [(none)]> show grants;
++---------------------------------------------------------------------+
+| Grants for root@localhost                                           |
++---------------------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO `root`@`localhost` WITH GRANT OPTION |
+| GRANT PROXY ON ''@'%' TO 'root'@'localhost' WITH GRANT OPTION       |
++---------------------------------------------------------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO ilham@localhost
+    -> IDENTIFIED BY 'ilham123';
+Query OK, 0 rows affected (0.008 sec)
+
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON dbtoko_ti08.* TO arifin@localhost
+    -> IDENTIFIED BY 'arifin123';
+Query OK, 0 rows affected (0.007 sec)
+
+MariaDB [(none)]> GRANT SELECT,INSERT ON dbtoko_ti08.* TO ipin@localhost
+    -> IDENTIFIED BY 'ipin123';
+Query OK, 0 rows affected (0.006 sec)
+
+
+
+MariaDB [(none)]> SHOW GRANTS FOR 'ilham'@'localhost';
++-----------------------------------------------------------------------------------------------------------------------+
+| Grants for ilham@localhost                                                                                            |
++-----------------------------------------------------------------------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO `ilham`@`localhost` IDENTIFIED BY PASSWORD '*001C28EFC9476BCF8A739B162BE046EF04BF69D1' |
++-----------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [(none)]> SHOW GRANTS FOR 'arifin'@'localhost';
++---------------------------------------------------------------------------------------------------------------+
+| Grants for arifin@localhost                                                                                   |
++---------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `arifin`@`localhost` IDENTIFIED BY PASSWORD '*11F2F1A0F6F0376A7F54339514EC7417FFB7EE55' |
+| GRANT ALL PRIVILEGES ON `dbtoko_ti08`.* TO `arifin`@`localhost`                                               |
++---------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [(none)]> SHOW GRANTS FOR 'ipin'@'localhost';
++-------------------------------------------------------------------------------------------------------------+
+| Grants for ipin@localhost                                                                                   |
++-------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `ipin`@`localhost` IDENTIFIED BY PASSWORD '*8F3FE1D3A9FA9C0935E7785E7137730D3164F929' |
+| GRANT SELECT, INSERT ON `dbtoko_ti08`.* TO `ipin`@`localhost`                                               |
++-------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.000 sec)
+
+
+
+
+===================================
+ILHAM ARIFIN@DESKTOP-2TUQAJ0 d:\xampp
+# mysql -u ilham -p
+Enter password: ********
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 47
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| buku_tamu          |
+| chirpers           |
+| db_puskes          |
+| db_simantu         |
+| dbcompany_profile  |
+| dbgame             |
+| dbhotel            |
+| dbhotel1           |
+| dbhotel_project    |
+| dbkuliah           |
+| dbmovies           |
+| dbpegawai          |
+| dbpegawai2         |
+| dbpuskesmas        |
+| dbpuskesmas2       |
+| dbti08             |
+| dbtoko             |
+| dbtoko_jumat       |
+| dbtoko_ti08        |
+| dbweather          |
+| information_schema |
+| laravel            |
+| mysql              |
+| performance_schema |
+| phpdasar           |
+| phpmyadmin         |
+| test               |
+| todo_pra           |
++--------------------+
+28 rows in set (0.002 sec)
+
+MariaDB [(none)]> Bye
+
+
+=============================
+
+
+ILHAM ARIFIN@DESKTOP-2TUQAJ0 d:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 48
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'ilham'@'localhost';
+Query OK, 0 rows affected (0.007 sec)
+
+MariaDB [(none)]> Bye
+
+ILHAM ARIFIN@DESKTOP-2TUQAJ0 d:\xampp
+# mysql -u ilham -p
+Enter password: ********
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 51
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [(none)]>	
+
+
+=============
