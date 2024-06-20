@@ -1,9 +1,10 @@
-cover
+-- LAPORAN --
+cover & judul
 latar belakang (database project)
 deskripsi (database project)
 desain database project (workbench) ERD 
 
-
+-- DATABASE --
 create
 crud
 join table
@@ -15,6 +16,7 @@ triger
 dcl
 backup & restore
 
+-- DIKUMPULKAN --
 laporan word
 mwb
 sql
